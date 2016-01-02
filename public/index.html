@@ -18,20 +18,25 @@
     <br />
 
     <label>Tip</label>
-    <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip"></input>
+    <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
     <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"></input>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}" ng-change="vm.updateCalculations()"></input>
       Low
     </label>
     <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"></input>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}" ng-change="vm.updateCalculations()"></input>
       Med
     </label>
     <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"></input>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}" ng-change="vm.updateCalculations()"></input>
       High
     </label>
     <p>{{ vm.tipPercentage }}</p>
+
+    <div>
+      <h2>Total Bill</h2>
+      <p>{{ vm.totalBillAmount }}</p>
+    </div>
 
     <label>People</label>
     <input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
