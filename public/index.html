@@ -10,12 +10,12 @@
     <h1>Tip Split</h1>
 
     <label>Check</label>
-    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check"></input>
-    <p>{{ vm.checkAmount }}</p>
+    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
+    <br />
 
     <label>Tax</label>
-    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax"></input>
-    <p>{{ vm.taxAmount }}</p>
+    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
+    <br />
 
     <label>Tip</label>
     <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip"></input>
@@ -34,7 +34,7 @@
     <p>{{ vm.tipPercentage }}</p>
 
     <label>People</label>
-    <input type="text" ng-model="vm.numberOfPeople"></input>
+    <input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
 
     <div>
       <h2>Everyone</h2><br />
