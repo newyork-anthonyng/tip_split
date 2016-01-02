@@ -6,6 +6,7 @@
     <script src="./js/app.js"></script>
     <script src="./js/myController.js"></script>
     <script src="./js/personView.js"></script>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"></link>
     <title>Tip Split</title>
   </head>
   <body ng-controller="MyController as vm">
@@ -50,8 +51,7 @@
     <button ng-click="vm.addCustomPerson()">Add special breakout for person</button>
 
     <div>
-      <!-- <li ng-repeat="person in vm.customPeople">{{ person.checkAmount }}</li> -->
-      <!-- <person index="1"></person> -->
+      <person name="{{ $index }}" ng-repeat="person in vm.customPeople"></person>
     </div>
 
     <!-- Per Person Calculation -->
