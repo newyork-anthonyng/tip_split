@@ -5,9 +5,14 @@ myApp.controller('MyController', MyController);
 
 function MyController() {
   var self = this;
+
+  // total amounts
   self.checkAmount;
   self.taxAmount;
   self.tipAmount;
+  self.totalBillAmount;
+
+  // people
   self.numberOfPeople = 1;
 
   // tip percentages
@@ -21,6 +26,10 @@ function MyController() {
   self.perPerson_tax;
   self.perPerson_tip;
 
+  self.updateTotalBill = function() {
+    self.totalBillAmount = self.checkAmount + self.taxAmount + self.tipAmount;
+  }
+
   self.calculateTip = function() {
     // console.log('calculating tip');
     // console.log(self.tipPercentage);
@@ -29,11 +38,14 @@ function MyController() {
   };
 
   self.updatePerPerson = function() {
-
+    self.perPerson_check = self.checkAmount / self.numberOfPeople;
+    self.perPerson_tax   = self.taxAmount / self.numberOfPeople;
+    self.perPerson_tip   = self.tipAmount / self.numberOfPeople;
   };
 
   self.updateCalculations = function() {
     self.calculateTip();
+    self.updateTotalBill();
     self.updatePerPerson();
   };
 
