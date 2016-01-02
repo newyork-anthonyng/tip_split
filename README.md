@@ -12,4 +12,4 @@ A web application to split bills between friends.
   * A user will be able to see a reconciliation of the math and bill
 
 ## Wireframe
-  ![www.google.com](./assets/wireframe/wireframe.png)
+  ![Mobile Wireframe](./public/assets/wireframe/wireframe.png)
