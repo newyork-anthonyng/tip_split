@@ -27,20 +27,21 @@ function MyController() {
   self.perPerson_tip;
 
   self.updateTotalBill = function() {
-    self.totalBillAmount = self.checkAmount + self.taxAmount + self.tipAmount;
+    self.totalBillAmount = Number(self.checkAmount || 0) + Number(self.taxAmount || 0) + Number(self.tipAmount || 0);
   }
 
   self.calculateTip = function() {
-    // console.log('calculating tip');
-    // console.log(self.tipPercentage);
-    // console.log(self.checkAmount);
-    self.tipAmount = self.tipPercentage * self.checkAmount;
+    self.tipAmount = Math.round(self.tipPercentage * self.checkAmount * 100) / 100;
   };
 
   self.updatePerPerson = function() {
-    self.perPerson_check = self.checkAmount / self.numberOfPeople;
-    self.perPerson_tax   = self.taxAmount / self.numberOfPeople;
-    self.perPerson_tip   = self.tipAmount / self.numberOfPeople;
+    var myNumberOfPeople = self.numberOfPeople;
+
+    if(!self.numberOfPeople) myNumberOfPeople = 1;
+
+    self.perPerson_check = Math.round(self.checkAmount / myNumberOfPeople * 100) / 100 || 0;
+    self.perPerson_tax   = Math.round(self.taxAmount / myNumberOfPeople * 100) / 100 || 0;
+    self.perPerson_tip   = Math.round(self.tipAmount / myNumberOfPeople * 100) / 100 || 0;
   };
 
   self.updateCalculations = function() {
@@ -48,6 +49,5 @@ function MyController() {
     self.updateTotalBill();
     self.updatePerPerson();
   };
-
 
 }
