@@ -8,7 +8,10 @@ function personView() {
   directive.replace = true;
   directive.templateUrl = '_personView.html';
   directive.scope = {
-    name: '@'
+    name: '@',
+    checkAmount: '@',
+    tipAmount: '@',
+    taxAmount: '@'
   };
 
   return directive;

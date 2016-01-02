@@ -1,3 +1,9 @@
-<div>
-  <p>{{ index }}</p>
+<div class="person">
+  <h3>Breakout for Person #{{ name }}</h3>
+  <label>Check Amount</label>
+  <input type="text" ng-model="name"></input>
+
+  <label>Tip</label><p>{{ tipAmount }}</p>
+
+  <label>Tax</label><p>{{ taxAmount }}</p>
 </div>
