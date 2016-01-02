@@ -7,7 +7,51 @@
     <title>Tip Split</title>
   </head>
   <body ng-controller="MyController as vm">
-    <h1>Test</h1>
-    <p>{{ vm.testMessage }}</p>
+    <h1>Tip Split</h1>
+
+    <label>Check</label>
+    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check"></input>
+    <p>{{ vm.checkAmount }}</p>
+
+    <label>Tax</label>
+    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax"></input>
+    <p>{{ vm.taxAmount }}</p>
+
+    <label>Tip</label>
+    <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip"></input>
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"></input>
+      Low
+    </label>
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"></input>
+      Med
+    </label>
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"></input>
+      High
+    </label>
+    <p>{{ vm.tipPercentage }}</p>
+
+    <label>People</label>
+    <input type="text" ng-model="vm.numberOfPeople"></input>
+
+    <div>
+      <h2>Everyone</h2><br />
+
+      <label>Check</label>
+      <p>{{ vm.perPerson_check }}</p>
+      <br />
+
+      <label>Tip</label>
+      <p>{{ vm.perPerson_tip }}</p>
+      <br />
+
+      <label>Tax</label>
+      <p>{{ vm.perPerson_tax }}</p>
+      <br />
+
+    </div>
+
   </body>
 </html>
