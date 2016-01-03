@@ -10,6 +10,11 @@ function MyController($interval) {
   self.tipAmount;
   self.totalBillAmount;
 
+  self.rec_check;
+  self.rec_tax;
+  self.rec_tip;
+  self.rec_total;
+
   // people
   self.numberOfPeople = 1;
   self.customPeople = [];
@@ -64,8 +69,7 @@ function MyController($interval) {
     self.updateTotalBill();
     self.updatePerPerson();
     self.updateCustomPeople();
-
-    self.test();
+    self.updateReconciliation();
   };
 
   self.updateCustomPeople = function() {
@@ -105,6 +109,25 @@ function MyController($interval) {
     console.log('deleting custom person');
     self.customPeople.splice(index,   1);
     self.updateCalculations();
+  };
+
+  self.updateReconciliation = function() {
+    self.rec_check = 0;
+    self.rec_tip = 0;
+    self.rec_tax = 0;
+
+    for(var i = 0, j = self.customPeople.length; i < j; i++) {
+      self.rec_check += Number(self.customPeople[i].checkAmount);
+      self.rec_tip += self.customPeople[i].tipAmount;
+      self.rec_tax += self.customPeople[i].taxAmount;
+    }
+
+    var restOfPeople = self.numberOfPeople - self.customPeople.length;
+    self.rec_check += self.perPerson_check * restOfPeople;
+    self.rec_tip += self.perPerson_tip * restOfPeople;
+    self.rec_tax += self.perPerson_tax * restOfPeople;
+
+    self.rec_total = self.rec_check + self.rec_tip + self.rec_tax;
   };
 
   return self;
