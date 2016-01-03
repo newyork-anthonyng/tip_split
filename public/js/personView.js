@@ -11,7 +11,8 @@ function personView() {
     name: '@',
     checkAmount: '@',
     tipAmount: '@',
-    taxAmount: '@'
+    taxAmount: '@',
+    test: '&'
   };
 
   return directive;

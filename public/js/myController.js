@@ -63,9 +63,10 @@ function MyController() {
     console.log(self.customPeople);
   };
 
-  self.personCheck = function(index) {
-    console.log('index: ' + index);
-  };
+  self.test = function(index) {
+    console.log('Hello world ' + index);
+    console.log(self.customPeople);
+  }
 
   return self;
 }
