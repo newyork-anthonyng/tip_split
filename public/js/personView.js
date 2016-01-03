@@ -9,10 +9,11 @@ function personView() {
   directive.templateUrl = '_personView.html';
   directive.scope = {
     name: '@',
-    checkAmount: '@',
-    tipAmount: '@',
-    taxAmount: '@',
-    test: '&'
+    checkamount: '@',
+    tipamount: '@',
+    taxamount: '@',
+    test: '&',
+    updatecalculation: '&'
   };
 
   return directive;

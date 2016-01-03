@@ -1,7 +1,7 @@
 angular.module('MyApp')
   .controller('MyController', MyController);
 
-function MyController() {
+function MyController($interval) {
   var self = this;
 
   // total amounts
@@ -47,26 +47,42 @@ function MyController() {
     self.calculateTip();
     self.updateTotalBill();
     self.updatePerPerson();
+    self.updateCustomPeople();
+
+    self.test();
   };
 
+  self.updateCustomPeople = function() {
+    for(var i = 0, j = self.customPeople.length; i < j; i++) {
+      self.customPeople[i].tipAmount = Math.round(self.customPeople[i].checkAmount * self.tipPercentage * 100) / 100;
+      self.customPeople[i].taxAmount = Math.round(self.taxAmount * (self.customPeople[i].checkAmount / self.checkAmount) * 100) / 100;
+    }
+  };
   self.addCustomPerson = function() {
     // check number of total people
     if(self.customPeople.length >= self.numberOfPeople) return;
 
     var newPerson = {
-      checkAmount: 0,
-      tipAmount:   0,
-      taxAmount:   0
+      checkAmount: 123,
+      tipAmount:   -1,
+      taxAmount:   -1
     };
 
     self.customPeople.push(newPerson);
-    console.log(self.customPeople);
   };
 
   self.test = function(index) {
-    console.log('Hello world ' + index);
     console.log(self.customPeople);
-  }
+  };
+
+  self.getTipForPerson = function(index) {
+    // update person's tip amount
+    return self.customPeople[index].tipAmount;
+  };
+
+  self.getTaxForPerson = function(index) {
+    return self.customPeople[index].taxAmount;
+  };
 
   return self;
 }

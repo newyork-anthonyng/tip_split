@@ -51,7 +51,15 @@
     <button ng-click="vm.addCustomPerson()">Add special breakout for person</button>
 
     <div>
-      <person name="{{ $index }}" test="vm.test($index)" ng-repeat="person in vm.customPeople"></person>
+      <person
+              name="{{ $index }}"
+              checkamount="{{ vm.customPeople[$index].checkAmount }}"
+              tipamount="{{ vm.getTipForPerson($index) }}"
+              taxamount="{{ vm.getTaxForPerson($index) }}"
+              test="vm.test($index)"
+              updatecalculation="vm.updateCalculations()"
+              ng-repeat="person in vm.customPeople">
+      </person>
     </div>
 
     <!-- Per Person Calculation -->
