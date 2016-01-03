@@ -50,6 +50,9 @@ function MyController() {
   };
 
   self.addCustomPerson = function() {
+    // check number of total people
+    if(self.customPeople.length >= self.numberOfPeople) return;
+
     var newPerson = {
       checkAmount: 0,
       tipAmount:   0,
@@ -58,6 +61,10 @@ function MyController() {
 
     self.customPeople.push(newPerson);
     console.log(self.customPeople);
+  };
+
+  self.personCheck = function(index) {
+    console.log('index: ' + index);
   };
 
   return self;
