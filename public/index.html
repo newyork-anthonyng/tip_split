@@ -57,6 +57,7 @@
               tipamount="{{ vm.getTipForPerson($index) }}"
               taxamount="{{ vm.getTaxForPerson($index) }}"
               test="vm.test($index)"
+              delete="vm.removeCustomPerson($index)"
               updatecalculation="vm.updateCalculations()"
               ng-repeat="person in vm.customPeople">
       </person>

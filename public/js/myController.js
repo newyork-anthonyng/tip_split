@@ -54,9 +54,6 @@ function MyController($interval) {
     var myTax = self.taxAmount - customPeople_taxAmount;
     var myTip = self.tipAmount - customPeople_tipAmount;
 
-    console.log('myCheck: ' + myCheck);
-    console.log('myNumberOfPeople: ' + myNumberOfPeople);
-
     self.perPerson_check = Math.round(myCheck / myNumberOfPeople * 100) / 100 || 0;
     self.perPerson_tax   = Math.round(myTax / myNumberOfPeople * 100) / 100 || 0;
     self.perPerson_tip   = Math.round(myTip / myNumberOfPeople * 100) / 100 || 0;
@@ -102,6 +99,12 @@ function MyController($interval) {
 
   self.getTaxForPerson = function(index) {
     return self.customPeople[index].taxAmount;
+  };
+
+  self.removeCustomPerson = function(index) {
+    console.log('deleting custom person');
+    self.customPeople.splice(index,   1);
+    self.updateCalculations();
   };
 
   return self;

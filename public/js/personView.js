@@ -13,6 +13,7 @@ function personView() {
     tipamount: '@',
     taxamount: '@',
     test: '&',
+    delete: '&',
     updatecalculation: '&'
   };
 
