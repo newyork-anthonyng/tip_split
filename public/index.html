@@ -53,7 +53,7 @@
     <div>
       <person
               name="{{ $index }}"
-              checkamount="{{ vm.customPeople[$index].checkAmount }}"
+              checkamount="vm.customPeople[$index].checkAmount"
               tipamount="{{ vm.getTipForPerson($index) }}"
               taxamount="{{ vm.getTaxForPerson($index) }}"
               test="vm.test($index)"

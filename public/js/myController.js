@@ -63,7 +63,7 @@ function MyController($interval) {
     if(self.customPeople.length >= self.numberOfPeople) return;
 
     var newPerson = {
-      checkAmount: 123,
+      checkAmount: 0,
       tipAmount:   -1,
       taxAmount:   -1
     };
