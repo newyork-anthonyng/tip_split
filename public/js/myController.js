@@ -38,9 +38,28 @@ function MyController($interval) {
 
     if(!self.numberOfPeople) myNumberOfPeople = 1;
 
-    self.perPerson_check = Math.round(self.checkAmount / myNumberOfPeople * 100) / 100 || 0;
-    self.perPerson_tax   = Math.round(self.taxAmount / myNumberOfPeople * 100) / 100 || 0;
-    self.perPerson_tip   = Math.round(self.tipAmount / myNumberOfPeople * 100) / 100 || 0;
+    var customPeople_checkAmount = 0;
+    var customPeople_taxAmount = 0;
+    var customPeople_tipAmount = 0;
+    for(var i = 0, j = self.customPeople.length; i < j; i++) {
+      customPeople_checkAmount += Number(self.customPeople[i].checkAmount);
+      customPeople_taxAmount += self.customPeople[i].taxAmount;
+      customPeople_tipAmount += self.customPeople[i].tipAmount;
+    }
+
+    myNumberOfPeople -= self.customPeople.length;
+
+    // carve out the custom people amount
+    var myCheck = self.checkAmount - customPeople_checkAmount;
+    var myTax = self.taxAmount - customPeople_taxAmount;
+    var myTip = self.tipAmount - customPeople_tipAmount;
+
+    console.log('myCheck: ' + myCheck);
+    console.log('myNumberOfPeople: ' + myNumberOfPeople);
+
+    self.perPerson_check = Math.round(myCheck / myNumberOfPeople * 100) / 100 || 0;
+    self.perPerson_tax   = Math.round(myTax / myNumberOfPeople * 100) / 100 || 0;
+    self.perPerson_tip   = Math.round(myTip / myNumberOfPeople * 100) / 100 || 0;
   };
 
   self.updateCalculations = function() {
@@ -54,8 +73,9 @@ function MyController($interval) {
 
   self.updateCustomPeople = function() {
     for(var i = 0, j = self.customPeople.length; i < j; i++) {
+      var myPercent = (self.customPeople[i].checkAmount / self.checkAmount);
       self.customPeople[i].tipAmount = Math.round(self.customPeople[i].checkAmount * self.tipPercentage * 100) / 100;
-      self.customPeople[i].taxAmount = Math.round(self.taxAmount * (self.customPeople[i].checkAmount / self.checkAmount) * 100) / 100;
+      self.customPeople[i].taxAmount = Math.round(self.taxAmount * myPercent * 100) / 100 || 0;
     }
   };
   self.addCustomPerson = function() {
