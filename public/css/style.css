@@ -31,3 +31,16 @@ button + h4 {
   font-style:italic;
   font-weight:300;
 }
+
+#largeButton {
+  height:5em;
+  width:5em;
+}
+
+h2 {
+  display:inline-block;
+}
+
+i {
+
+}
