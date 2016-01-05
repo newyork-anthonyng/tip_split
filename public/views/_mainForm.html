@@ -12,28 +12,32 @@
 <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
 <br />
 
-<p>
-  <input name="tipPercentageGroup" type="radio"
-         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
-         ng-change="vm.updateCalculations()" id="lo"></input>
-  <label for="lo">{{ vm.tipPercentage_low }}</label>
-</p>
+<div id="percentages">
+  <p>
+    <input name="tipPercentageGroup" type="radio"
+           ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
+           ng-change="vm.updateCalculations()" id="lo"></input>
+    <label for="lo">{{ vm.tipPercentage_low }}</label>
+  </p>
 
-<p>
-  <input name="tipPercentageGroup" type="radio"
-         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
-         ng-change="vm.updateCalculations()" id="med"></input>
-  <label for="med">{{ vm.tipPercentage_med }}</label>
-</p>
+  <p>
+    <input name="tipPercentageGroup" type="radio"
+           ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
+           ng-change="vm.updateCalculations()" id="med"></input>
+    <label for="med">{{ vm.tipPercentage_med }}</label>
+  </p>
 
-<p>
-  <input name="tipPercentageGroup" type="radio"
-         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"
-         ng-change="vm.updateCalculations()" id="hi"></input>
-  <label for="hi">{{ vm.tipPercentage_hi }}</label>
-</p>
+  <p>
+    <input name="tipPercentageGroup" type="radio"
+           ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"
+           ng-change="vm.updateCalculations()" id="hi"></input>
+    <label for="hi">{{ vm.tipPercentage_hi }}</label>
+  </p>
+</div>
 
-<div>
-  <h4>Total Bill</h4>
-  <p>{{ vm.totalBillAmount }}</p>
+<div class="row">
+  <div class="card">
+    <h4>Total Bill</h4>
+    <p id="totalBill">{{ vm.totalBillAmount }}</p>
+  </div>
 </div>
