@@ -1,7 +1,7 @@
 angular.module('MyApp')
   .controller('MyController', MyController);
 
-function MyController($interval) {
+function MyController($interval, UtilityFactory) {
   var self = this;
 
   // total amounts
@@ -31,11 +31,13 @@ function MyController($interval) {
   self.perPerson_tip;
 
   self.updateTotalBill = function() {
-    self.totalBillAmount = Number(self.checkAmount || 0) + Number(self.taxAmount || 0) + Number(self.tipAmount || 0);
+    self.totalBillAmount = Number(self.checkAmount || 0) +
+                           Number(self.taxAmount || 0) +
+                           Number(self.tipAmount || 0);
   }
 
   self.calculateTip = function() {
-    self.tipAmount = Math.round(self.tipPercentage * self.checkAmount * 100) / 100;
+    self.tipAmount = UtilityFactory.round(self.tipPercentage * self.checkAmount, 2);
   };
 
   self.updatePerPerson = function() {
@@ -59,9 +61,9 @@ function MyController($interval) {
     var myTax = self.taxAmount - customPeople_taxAmount;
     var myTip = self.tipAmount - customPeople_tipAmount;
 
-    self.perPerson_check = Math.round(myCheck / myNumberOfPeople * 100) / 100 || 0;
-    self.perPerson_tax   = Math.round(myTax / myNumberOfPeople * 100) / 100 || 0;
-    self.perPerson_tip   = Math.round(myTip / myNumberOfPeople * 100) / 100 || 0;
+    self.perPerson_check = UtilityFactory.round(myCheck / myNumberOfPeople, 2) || 0;
+    self.perPerson_tax   = UtilityFactory.round(myTax / myNumberOfPeople, 2) || 0;
+    self.perPerson_tip   = UtilityFactory.round(myTip / myNumberOfPeople, 2) || 0;
   };
 
   self.updateCalculations = function() {
@@ -75,8 +77,8 @@ function MyController($interval) {
   self.updateCustomPeople = function() {
     for(var i = 0, j = self.customPeople.length; i < j; i++) {
       var myPercent = (self.customPeople[i].checkAmount / self.checkAmount);
-      self.customPeople[i].tipAmount = Math.round(self.customPeople[i].checkAmount * self.tipPercentage * 100) / 100;
-      self.customPeople[i].taxAmount = Math.round(self.taxAmount * myPercent * 100) / 100 || 0;
+      self.customPeople[i].tipAmount = UtilityFactory.round(self.customPeople[i].checkAmount * self.tipPercentage, 2);
+      self.customPeople[i].taxAmount = UtilityFactory(self.taxAmount * myPercent, 2) || 0;
     }
   };
   self.addCustomPerson = function() {
@@ -92,10 +94,6 @@ function MyController($interval) {
     self.customPeople.push(newPerson);
   };
 
-  self.test = function(index) {
-    console.log(self.customPeople);
-  };
-
   self.getTipForPerson = function(index) {
     // update person's tip amount
     return self.customPeople[index].tipAmount;
@@ -106,7 +104,6 @@ function MyController($interval) {
   };
 
   self.removeCustomPerson = function(index) {
-    console.log('deleting custom person');
     self.customPeople.splice(index,   1);
     self.updateCalculations();
   };
@@ -131,4 +128,19 @@ function MyController($interval) {
   };
 
   return self;
+}
+
+angular.module('MyApp')
+  .factory('UtilityFactory', UtilityFactory);
+
+function UtilityFactory() {
+  var UtilityFactory = {};
+
+  UtilityFactory.round = function(num, decimals) {
+    var rounding = Math.pow(10, decimals);
+
+    return Math.round(num * rounding) / rounding;
+  };
+
+  return UtilityFactory;
 }
