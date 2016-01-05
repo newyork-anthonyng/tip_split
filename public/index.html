@@ -10,91 +10,11 @@
     <title>Tip Split</title>
   </head>
   <body ng-controller="MyController as vm">
-
-    <customPerson></customPerson>
     <h1>Tip Split</h1>
 
-    <label>Check</label>
-    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
-    <br />
-
-    <label>Tax</label>
-    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
-    <br />
-
-    <label>Tip</label>
-    <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
-    <br />
-    <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}" ng-change="vm.updateCalculations()"></input>
-      Low
-    </label>
-    <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}" ng-change="vm.updateCalculations()"></input>
-      Med
-    </label>
-    <label>
-      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}" ng-change="vm.updateCalculations()"></input>
-      High
-    </label>
-    <p>{{ vm.tipPercentage }}</p>
-
-    <div>
-      <h2>Total Bill</h2>
-      <p>{{ vm.totalBillAmount }}</p>
-    </div>
-
-    <label>People</label>
-    <input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
-
-    <!-- Add custom person -->
-    <button ng-click="vm.addCustomPerson()">Add special breakout for person</button>
-
-    <div>
-      <person
-              name="{{ $index }}"
-              checkamount="vm.customPeople[$index].checkAmount"
-              tipamount="{{ vm.getTipForPerson($index) }}"
-              taxamount="{{ vm.getTaxForPerson($index) }}"
-              test="vm.test($index)"
-              delete="vm.removeCustomPerson($index)"
-              updatecalculation="vm.updateCalculations()"
-              ng-repeat="person in vm.customPeople">
-      </person>
-    </div>
-
-    <!-- Per Person Calculation -->
-    <div>
-      <h2>Everyone</h2><br />
-
-      <label>Check</label>
-      <p>{{ vm.perPerson_check }}</p>
-      <br />
-
-      <label>Tip</label>
-      <p>{{ vm.perPerson_tip }}</p>
-      <br />
-
-      <label>Tax</label>
-      <p>{{ vm.perPerson_tax }}</p>
-      <br />
-    </div>
-
-    <!-- Reconciliation -->
-    <div>
-      <h2>Reconciliation</h2><br />
-      <label>Total Check</label>
-      <p>{{ vm.rec_check}}</p><br />
-
-      <label>Total Tip</label>
-      <p>{{ vm.rec_tip }}</p><br />
-
-      <label>Total Tax</label>
-      <p>{{ vm.rec_tax }}</p><br />
-
-      <label>Difference</label>
-      <p>{{ vm.totalBillAmount - vm.rec_total }}</p>
-    </div>
-
+    <div ng-include="'./views/_mainForm.html'"></div>
+    <div ng-include="'./views/_customPeople.html'"></div>
+    <div ng-include="'./views/_perPersonCalculation.html'"></div>
+    <div ng-include="'./views/_reconciliation.html'"></div>
   </body>
 </html>

@@ -6,7 +6,7 @@ function personView() {
 
   directive.restrict = 'E';
   directive.replace = true;
-  directive.templateUrl = '_personView.html';
+  directive.templateUrl = '../views/_personView.html';
   directive.scope = {
     name: '@',
     checkamount: '=',

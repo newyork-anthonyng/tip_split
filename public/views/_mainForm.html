@@ -1,0 +1,30 @@
+
+    <label>Check</label>
+    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
+    <br />
+
+    <label>Tax</label>
+    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
+    <br />
+
+    <label>Tip</label>
+    <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
+    <br />
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}" ng-change="vm.updateCalculations()"></input>
+      Low
+    </label>
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}" ng-change="vm.updateCalculations()"></input>
+      Med
+    </label>
+    <label>
+      <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}" ng-change="vm.updateCalculations()"></input>
+      High
+    </label>
+    <p>{{ vm.tipPercentage }}</p>
+
+    <div>
+      <h2>Total Bill</h2>
+      <p>{{ vm.totalBillAmount }}</p>
+    </div>

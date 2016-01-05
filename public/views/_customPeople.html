@@ -1,0 +1,18 @@
+<label>People</label>
+<input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
+
+<!-- Add custom person -->
+<button ng-click="vm.addCustomPerson()">Add special breakout for person</button>
+
+<div>
+  <person
+          name="{{ $index }}"
+          checkamount="vm.customPeople[$index].checkAmount"
+          tipamount="{{ vm.getTipForPerson($index) }}"
+          taxamount="{{ vm.getTaxForPerson($index) }}"
+          test="vm.test($index)"
+          delete="vm.removeCustomPerson($index)"
+          updatecalculation="vm.updateCalculations()"
+          ng-repeat="person in vm.customPeople">
+  </person>
+</div>
