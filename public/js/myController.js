@@ -144,3 +144,10 @@ function UtilityFactory() {
 
   return UtilityFactory;
 }
+
+angular.module('MyApp')
+  .filter('percentage', ['$filter', function($filter) {
+    return function(input) {
+      return $filter('number')(input * 100) + '%';
+    };
+  }]);
