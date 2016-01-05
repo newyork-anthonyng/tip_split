@@ -1,28 +1,39 @@
-  <label>Check</label>
-  <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
-  <br />
+<h1>Tip Split</h1>
 
-  <label>Tax</label>
-  <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
-  <br />
+<h4>Check</h4>
+<input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
+<br />
 
-  <label>Tip</label>
-  <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
-  <br />
-  <label>
-    <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}" ng-change="vm.updateCalculations()"></input>
-    {{ vm.tipPercentage_low }}
-  </label>
-  <label>
-    <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}" ng-change="vm.updateCalculations()"></input>
-    {{ vm.tipPercentage_med }}
-  </label>
-  <label>
-    <input type="radio" ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}" ng-change="vm.updateCalculations()"></input>
-    {{ vm.tipPercentage_hi }}
-  </label>
+<h4>Tax</h4>
+<input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
+<br />
 
-  <div>
-    <h2>Total Bill</h2>
-    <p>{{ vm.totalBillAmount }}</p>
-  </div>
+<h4>Tip</h4>
+<input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
+<br />
+
+<p>
+  <input name="tipPercentageGroup" type="radio"
+         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
+         ng-change="vm.updateCalculations()" id="lo"></input>
+  <label for="lo">{{ vm.tipPercentage_low }}</label>
+</p>
+
+<p>
+  <input name="tipPercentageGroup" type="radio"
+         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
+         ng-change="vm.updateCalculations()" id="med"></input>
+  <label for="med">{{ vm.tipPercentage_med }}</label>
+</p>
+
+<p>
+  <input name="tipPercentageGroup" type="radio"
+         ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"
+         ng-change="vm.updateCalculations()" id="hi"></input>
+  <label for="hi">{{ vm.tipPercentage_hi }}</label>
+</p>
+
+<div>
+  <h4>Total Bill</h4>
+  <p>{{ vm.totalBillAmount }}</p>
+</div>
