@@ -2,7 +2,11 @@
 <input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
 
 <!-- Add custom person -->
-<button ng-click="vm.addCustomPerson()">Add special breakout for person</button>
+<button class="btn-floating btn-large waves-effect waves-light"
+        ng-click="vm.addCustomPerson()">
+          <i class="material-icons">add</i>
+</button>
+<h4>Add special breakout for person</h4>
 
 <div>
   <person
