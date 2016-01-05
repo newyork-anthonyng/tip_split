@@ -2,13 +2,25 @@
 
 <div class="row">
   <div class="card">
-    <h4>Check</h4>
-    <input type="text" ng-model="vm.checkAmount" placeholder="Enter Check" ng-keyup="vm.updateCalculations()"></input>
-    <br />
+    <div class="row">
+      <div class="col s2">
+        <h4>Check</h4>
+      </div>
 
-    <h4>Tax</h4>
-    <input type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
-    <br />
+      <div class="col s10">
+        <input id="input-text" type="text" ng-model="vm.checkAmount" ng-keyup="vm.updateCalculations()"></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s2">
+        <h4>Tax</h4>
+      </div>
+
+      <div class="col s10">
+        <input id="input-text" type="text" ng-model="vm.taxAmount" placeholder="Enter Tax" ng-keyup="vm.updateCalculations()"></input>
+      </div>
+    </div>
 
     <h4>Tip</h4>
     <input type="text" ng-model="vm.tipAmount" placeholder="Enter Custom Tip" ng-keyup="vm.updateCalculations()"></input>
