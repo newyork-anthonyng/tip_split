@@ -1,15 +1,40 @@
 <!-- Per Person Calculation -->
-<div>
-  <h3>Everyone</h3><br />
+<div class="container">
 
-  <h4>Check</h4>
-  <p>{{ vm.perPerson_check }}</p>
-  <br />
+  <div class="card amber lighten-4">
+    <div class="row">
+        <h1 class="center-align">Everyone</h1>
+    </div>
 
-  <h4>Tip</h4>
-  <p>{{ vm.perPerson_tip }}</p>
-  <br />
+    <div class="row">
+      <div class="col s4">
+        <h1>Check</h1>
+      </div>
 
-  <h4>Tax</h4>
-  <p>{{ vm.perPerson_tax }}</p>
+      <div class="col s8">
+        <h1>{{ vm.perPerson_check }}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s4">
+        <h1>Tip</h1>
+      </div>
+
+      <div class="col s8">
+        <h1>{{ vm.perPerson_tip }}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s4">
+        <h1>Tax</h1>
+      </div>
+
+      <div class="col s8">
+        <h1>{{ vm.perPerson_tax }}</h1>
+      </div>
+
+    </div>
+  </div>
 </div>
