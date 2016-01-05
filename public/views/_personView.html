@@ -1,17 +1,38 @@
+<div class="card amber lighten-4">
+  <h1>Breakout for Person #{{ name + 1 }}</h1>
 
-<div class="person">
+  <div class="row">
+    <div class="col s4">
+      <h1>Check Amount</h1>
+    </div>
+
+    <div class="col s8 input-box">
+      <input id="input-text" type="text" ng-model="checkamount" ng-keyup="updatecalculation()"></input><br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s4">
+      <h1>Tip</h1>
+    </div>
+
+    <div class="col s8">
+      <h1>{{ tipamount }}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s4">
+      <h1>Tax</h1>
+    </div>
+
+    <div class="col s8">
+      <h1>{{ taxamount }}</h1>
+    </div>
+  </div>
+
   <button class="btn-floating btn-large waves-effect waves-light"
           ng-click="delete()">
-            <i class="material-icons">delete</i>
+    <i class="material-icons">delete</i>
   </button>
-  <h3>Breakout for Person #{{ name }}</h3>
-
-  <h4>Check Amount</h4>
-  <input type="text" ng-model="checkamount" ng-keyup="updatecalculation()"></input><br />
-
-  <h4>Tip</h4>
-  <p>{{ tipamount }}</p><br />
-
-  <h4>Tax</h4>
-  <p>{{ taxamount }}</p>
 </div>
