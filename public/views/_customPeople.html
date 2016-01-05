@@ -1,4 +1,4 @@
-<label>People</label>
+<h4>Number of People</h4>
 <input type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
 
 <!-- Add custom person -->
@@ -14,7 +14,6 @@
           checkamount="vm.customPeople[$index].checkAmount"
           tipamount="{{ vm.getTipForPerson($index) }}"
           taxamount="{{ vm.getTaxForPerson($index) }}"
-          test="vm.test($index)"
           delete="vm.removeCustomPerson($index)"
           updatecalculation="vm.updateCalculations()"
           ng-repeat="person in vm.customPeople">

@@ -12,7 +12,6 @@ function personView() {
     checkamount: '=',
     tipamount: '@',
     taxamount: '@',
-    test: '&',
     delete: '&',
     updatecalculation: '&'
   };
