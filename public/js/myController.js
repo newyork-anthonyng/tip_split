@@ -78,7 +78,7 @@ function MyController($interval, UtilityFactory) {
     for(var i = 0, j = self.customPeople.length; i < j; i++) {
       var myPercent = (self.customPeople[i].checkAmount / self.checkAmount);
       self.customPeople[i].tipAmount = UtilityFactory.round(self.customPeople[i].checkAmount * self.tipPercentage, 2);
-      self.customPeople[i].taxAmount = UtilityFactory(self.taxAmount * myPercent, 2) || 0;
+      self.customPeople[i].taxAmount = UtilityFactory.round(self.taxAmount * myPercent, 2) || 0;
     }
   };
   self.addCustomPerson = function() {
