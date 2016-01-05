@@ -3,7 +3,7 @@
 
   <div class="card amber lighten-4">
     <div class="row">
-        <h1 class="center-align">Everyone</h1>
+        <h1 class="center-align">Per Person For Everyone</h1>
     </div>
 
     <div class="row">
@@ -12,7 +12,7 @@
       </div>
 
       <div class="col s8">
-        <h1>{{ vm.perPerson_check }}</h1>
+        <h1>{{ vm.perPerson_check | number }}</h1>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
       </div>
 
       <div class="col s8">
-        <h1>{{ vm.perPerson_tip }}</h1>
+        <h1>{{ vm.perPerson_tip | number }}</h1>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
       </div>
 
       <div class="col s8">
-        <h1>{{ vm.perPerson_tax }}</h1>
+        <h1>{{ vm.perPerson_tax | number }}</h1>
       </div>
 
     </div>
