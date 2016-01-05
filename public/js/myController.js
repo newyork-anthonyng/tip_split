@@ -87,8 +87,8 @@ function MyController($interval, UtilityFactory) {
 
     var newPerson = {
       checkAmount: 0,
-      tipAmount:   -1,
-      taxAmount:   -1
+      tipAmount:   0,
+      taxAmount:   0
     };
 
     self.customPeople.push(newPerson);

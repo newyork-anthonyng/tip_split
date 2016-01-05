@@ -39,14 +39,14 @@
           <input name="tipPercentageGroup" type="radio"
                  ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
                  ng-change="vm.updateCalculations()" id="lo"></input>
-          <label for="lo">{{ vm.tipPercentage_low | percentage:2 }}</label>
+          <label for="lo">{{ vm.tipPercentage_low | percentage }}</label>
         </li>
 
         <li>
           <input name="tipPercentageGroup" type="radio"
                  ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
                  ng-change="vm.updateCalculations()" id="med"></input>
-          <label for="med">{{ vm.tipPercentage_med | percentage:2 }}</label>
+          <label for="med">{{ vm.tipPercentage_med | percentage }}</label>
         </li>
 
         <li>
@@ -66,7 +66,7 @@
       </div>
 
       <div class="col s8">
-        <h1 id="totalBill">{{ vm.totalBillAmount | number }}</h1>
+        <h1 id="totalBill">{{ vm.totalBillAmount | number: 2 }}</h1>
       </div>
     </div>
   </div>
