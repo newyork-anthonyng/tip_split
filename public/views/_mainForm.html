@@ -1,73 +1,58 @@
-<div class="container">
+<div class="deep-purple darken-2" id="title">
+  <div class="valign-wrapper">
+    <h1 class="white-text valign">Tip Split</h1>
+  </div>
+</div>
 
-  <h1>Tip Split</h1>
-
-  <div class="card amber lighten-4">
-    <div class="row">
-      <div class="col s4">
-        <h1>Check</h1>
-      </div>
-
-      <div class="col s8 input-box">
-        <input id="input-text" type="text" ng-model="vm.checkAmount" ng-keyup="vm.updateCalculations()"></input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s4">
-        <h1>Tax</h1>
-      </div>
-
-      <div class="col s8 input-box">
-        <input id="input-text" type="text" ng-model="vm.taxAmount" ng-keyup="vm.updateCalculations()"></input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s4">
-        <h1>Tip</h1>
-      </div>
-
-      <div class="col s8 input-box">
-        <input id="input-text" type="text" ng-model="vm.tipAmount" ng-keyup="vm.updateCalculations()"></input>
-      </div>
-    </div>
-
-    <div id="percentages" class="col s12 center-align">
-      <ul>
-        <li>
-          <input name="tipPercentageGroup" type="radio"
-                 ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
-                 ng-change="vm.updateCalculations()" id="lo"></input>
-          <label for="lo">{{ vm.tipPercentage_low | percentage }}</label>
-        </li>
-
-        <li>
-          <input name="tipPercentageGroup" type="radio"
-                 ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
-                 ng-change="vm.updateCalculations()" id="med"></input>
-          <label for="med">{{ vm.tipPercentage_med | percentage }}</label>
-        </li>
-
-        <li>
-          <input name="tipPercentageGroup" type="radio"
-                 ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"
-                 ng-change="vm.updateCalculations()" id="hi"></input>
-          <label for="hi">{{ vm.tipPercentage_hi | percentage }}</label>
-        </li>
-      </ul>
+<div class="deep-purple" id="title-enter-bill">
+  <div class="valign-wrapper">
+    <div class="col s4">
+      <h1 class="white-text valign">Enter Bill &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         Total: {{ vm.totalBillAmount | currency}}</h1>
+      <h1 class="white-text"><h1>
     </div>
   </div>
+</div>
 
-  <div class="card amber darken-2">
-    <div class="row">
-      <div class="col s4">
-        <h1>Total Bill</h1>
-      </div>
-
-      <div class="col s8">
-        <h1 id="totalBill">{{ vm.totalBillAmount | number: 2 }}</h1>
-      </div>
-    </div>
+<div class="row">
+  <div class="input-box">
+    <input id="input-text" placeholder="Check" type="text" ng-model="vm.checkAmount" ng-keyup="vm.updateCalculations()"></input>
   </div>
+</div>
+
+<div class="row">
+  <div class="input-box">
+    <input id="input-text" placeholder="Tax" type="text" ng-model="vm.taxAmount" ng-keyup="vm.updateCalculations()"></input>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-box">
+    <input id="input-text" placeholder="Tip" type="text" ng-model="vm.tipAmount" ng-keyup="vm.updateCalculations()"></input>
+  </div>
+</div>
+
+<div id="percentages" class="col s12 center-align">
+  <ul>
+    <li>
+      <input name="tipPercentageGroup" type="radio"
+             ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_low }}"
+             ng-change="vm.updateCalculations()" id="lo"></input>
+      <label for="lo">{{ vm.tipPercentage_low | percentage }}</label>
+    </li>
+
+    <li>
+      <input name="tipPercentageGroup" type="radio"
+             ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_med }}"
+             ng-change="vm.updateCalculations()" id="med"></input>
+      <label for="med">{{ vm.tipPercentage_med | percentage }}</label>
+    </li>
+
+    <li>
+      <input name="tipPercentageGroup" type="radio"
+             ng-model="vm.tipPercentage" value="{{ vm.tipPercentage_hi }}"
+             ng-change="vm.updateCalculations()" id="hi"></input>
+      <label for="hi">{{ vm.tipPercentage_hi | percentage }}</label>
+    </li>
+  </ul>
 </div>

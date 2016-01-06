@@ -8,7 +8,7 @@ function MyController($interval, UtilityFactory) {
   self.checkAmount;
   self.taxAmount;
   self.tipAmount;
-  self.totalBillAmount;
+  self.totalBillAmount = 0;
 
   // people
   self.numberOfPeople = 1;
