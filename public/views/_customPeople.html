@@ -1,32 +1,25 @@
-<div class="container">
-  <div class="card amber lighten-4">
-    <div class="row">
-      <div class="col s4">
-        <h1># of People</h1>
-      </div>
-
-      <div class="col s8 input-box">
-        <input id="input-text" type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
-      </div>
-    </div>
+<h1 id="title-number-of-people">Number of People</h4>
+<div class="row">
+  <div class="input-box">
+    <input id="input-text" placeholder="Number of people" type="text" ng-model="vm.numberOfPeople" ng-keyup="vm.updateCalculations()"></input>
   </div>
+</div>
 
-  <!-- Add custom person -->
-  <button class="btn-floating btn-large waves-effect waves-light z-depth-4"
-          ng-click="vm.addCustomPerson()" id="largeButton">
-            <i class="material-icons">add</i>
+<div class="center-align" id="button-add-container">
+  <button class="waves-effect waves-light btn z-depth-4 pink accent-2" id="button-add"
+  ng-click="vm.addCustomPerson()">
+    <span id="text-add-person">Add Special Breakout For Person</span>
   </button>
-  <h2>Add special breakout for person</h2>
+</div>
 
-  <div>
-    <person
-            name="{{ $index }}"
-            checkamount="vm.customPeople[$index].checkAmount"
-            tipamount="{{ vm.getTipForPerson($index) }}"
-            taxamount="{{ vm.getTaxForPerson($index) }}"
-            delete="vm.removeCustomPerson($index)"
-            updatecalculation="vm.updateCalculations()"
-            ng-repeat="person in vm.customPeople">
-    </person>
-  </div>
+<div>
+  <person
+          name="{{ $index }}"
+          checkamount="vm.customPeople[$index].checkAmount"
+          tipamount="{{ vm.getTipForPerson($index) }}"
+          taxamount="{{ vm.getTaxForPerson($index) }}"
+          delete="vm.removeCustomPerson($index)"
+          updatecalculation="vm.updateCalculations()"
+          ng-repeat="person in vm.customPeople">
+  </person>
 </div>
