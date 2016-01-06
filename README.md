@@ -1,5 +1,10 @@
 # Tip Split
 
+## [Link to App hosted on Heroku](http://tipsplit.herokuapp.com)
+
+## Comments on Project
+I got more comfortable using Angular, modularizing my Angular parts into different files, and using custom directives. ```ng-include``` was super helpful in helping me avoid having one colossal html file.
+
 ## Description
 A web application to split bills between friends.
 
