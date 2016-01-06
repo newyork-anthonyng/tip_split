@@ -1,5 +1,5 @@
-<div class="card amber lighten-4">
-  <h1>Breakout for Person #{{ name + 1 }}</h1>
+<div class="card z-depth-2">
+  <h1>Special Breakout for Person #{{ name }}</h1>
 
   <div class="row">
     <div class="col s4">
@@ -31,8 +31,10 @@
     </div>
   </div>
 
-  <button class="btn-floating btn-large waves-effect waves-light"
-          ng-click="delete()">
-    <i class="material-icons">delete</i>
-  </button>
+  <div class="right-align" id="button-delete-container">
+    <button class="waves-effect waves-light btn z-depth-4 pink accent-2" id="button-delete"
+    ng-click="delete()">
+      <span id="text-delete-person">Delete</span>
+    </button>
+  </div>
 </div>

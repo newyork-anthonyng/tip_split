@@ -36,17 +36,17 @@
 }
 
 #button-add {
-  height:6em;
+  height:2em;
   width:80%;
-}
-
-#text-add-person {
   font-size:4em;
   text-transform:capitalize;
 }
 
-button + h4 {
-  display:inline;
+#button-delete {
+  height:2em;
+  font-size:3em;
+  margin:0.5em;
+  text-transform:capitalize;
 }
 
 #input-text {
