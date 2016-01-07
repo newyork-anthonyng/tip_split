@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<table>
+<table class="bordered">
   <tbody>
     <tr>
       <td><h1>Check</h1></td>
@@ -21,6 +21,11 @@
     <tr>
       <td><h1>Tip</h1></td>
       <td><h1>{{ vm.perPerson_tax | number: 2 }}</h1></td>
+    </tr>
+
+    <tr>
+      <td><h1><strong>Total</strong></h1></td>
+      <td><h1>{{ vm.perPerson_check + vm.perPerson_tip + vm.perPerson_tax | number : 2}}</h1></td>
     </tr>
   </tbody>
 </table>
